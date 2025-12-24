@@ -1,0 +1,16 @@
+D:\code\eclipse-workspace\tag-parallel-case\src\test\java\base\BasePage.java
+D:\code\eclipse-workspace\tag-parallel-case\src\test\java\base\BaseTest.java
+D:\code\eclipse-workspace\tag-parallel-case\src\test\java\base\DriverFactory.java
+D:\code\eclipse-workspace\tag-parallel-case\src\test\java\base\DriverManager.java
+D:\code\eclipse-workspace\tag-parallel-case\src\test\java\extensions\DriverExtension.java
+D:\code\eclipse-workspace\tag-parallel-case\src\test\java\extensions\ScreenshotWatcher.java
+D:\code\eclipse-workspace\tag-parallel-case\src\test\java\pages\ABTestPage.java
+D:\code\eclipse-workspace\tag-parallel-case\src\test\java\pages\DragAndDropPage.java
+D:\code\eclipse-workspace\tag-parallel-case\src\test\java\pages\HomePage.java
+D:\code\eclipse-workspace\tag-parallel-case\src\test\java\pages\LoginPage.java
+D:\code\eclipse-workspace\tag-parallel-case\src\test\java\tests\abtest\ABTestTest.java
+D:\code\eclipse-workspace\tag-parallel-case\src\test\java\tests\dragdrop\DragAndDropTest.java
+D:\code\eclipse-workspace\tag-parallel-case\src\test\java\tests\login\LoginTest.java
+D:\code\eclipse-workspace\tag-parallel-case\src\test\java\tests\smoke\SmokeTest.java
+D:\code\eclipse-workspace\tag-parallel-case\src\test\java\utils\AllureUtils.java
+D:\code\eclipse-workspace\tag-parallel-case\src\test\java\utils\WaitUtils.java

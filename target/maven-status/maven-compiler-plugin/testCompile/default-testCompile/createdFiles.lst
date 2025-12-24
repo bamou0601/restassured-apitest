@@ -1,0 +1,16 @@
+tests\login\LoginTest.class
+tests\abtest\ABTestTest.class
+pages\DragAndDropPage.class
+pages\LoginPage.class
+pages\HomePage.class
+tests\dragdrop\DragAndDropTest.class
+base\DriverManager.class
+utils\WaitUtils.class
+base\BasePage.class
+base\BaseTest.class
+pages\ABTestPage.class
+base\DriverFactory.class
+tests\smoke\SmokeTest.class
+utils\AllureUtils.class
+extensions\DriverExtension.class
+extensions\ScreenshotWatcher.class
