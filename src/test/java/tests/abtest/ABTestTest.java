@@ -1,12 +1,19 @@
 package tests.abtest;
 
 import base.BaseTest;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import pages.ABTestPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Epic("Web UI Automation")
+@Feature("subsidized comprehension")
+@Story("context fresh and change check")
 @Tag("smoke")
 public class ABTestTest extends BaseTest {
 	

@@ -3,6 +3,7 @@ package base;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 import java.time.Duration;
+import java.util.List;
 /*
  * Page里不允许private WebDriver driver
  * 永远通过DriverManager取得
@@ -60,6 +61,12 @@ public abstract class BasePage {
 		return getWait().until(
 				ExpectedConditions
 				.elementToBeClickable(locator));
+	}
+	
+	protected List<WebElement> findAll(By locator) {
+		return getWait().until(
+			ExpectedConditions.presenceOfAllElementsLocatedBy(locator)
+		);
 	}
 	
 	/* ================== Business Actions ================== */

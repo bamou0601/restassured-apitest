@@ -9,10 +9,4 @@ public class AllureUtils {
 	public static byte[] captureStep(WebDriver driver) {
 		return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 	}
-	
-	
-	
-	
-	
-	
 }

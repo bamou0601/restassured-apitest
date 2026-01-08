@@ -1,6 +1,8 @@
 package pages;
 
 import base.BasePage;
+import io.qameta.allure.Step;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
@@ -22,7 +24,7 @@ public class DragAndDropPage extends BasePage {
 		new Actions(driver()).dragAndDrop(a, b).perform();
 	}
 	
-	//@Step("Verify boxes are swapped")
+	@Step("Verify boxes are swapped")
 	public boolean isSwapped() {
 		String aHeader = driver().findElement(columnA).getText();
 		return "B".equals(aHeader);

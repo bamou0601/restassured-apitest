@@ -1,6 +1,8 @@
 package pages;
 
 import base.BasePage;
+import io.qameta.allure.Step;
+
 import org.openqa.selenium.By;
 
 public class LoginPage extends BasePage {
@@ -18,6 +20,12 @@ public class LoginPage extends BasePage {
     	return PATH;
     }
     
+    @Step("打开Context Menu页面")
+	public void openPage() {
+		open();
+	}
+    
+    @Step("input username and password")
     public void login(String user, String pwd) {
     	type(username, user);
     	type(password, pwd);
