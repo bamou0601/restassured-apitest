@@ -18,6 +18,9 @@ D:\code\eclipse-workspace\parallel-case-step\src\test\java\pages\ContextMenuPage
 D:\code\eclipse-workspace\parallel-case-step\src\test\java\pages\DigestAuthPage.java
 D:\code\eclipse-workspace\parallel-case-step\src\test\java\pages\DisappearingElementsPage.java
 D:\code\eclipse-workspace\parallel-case-step\src\test\java\pages\DragAndDropPage.java
+D:\code\eclipse-workspace\parallel-case-step\src\test\java\pages\dropdown\DropdownOption.java
+D:\code\eclipse-workspace\parallel-case-step\src\test\java\pages\dropdown\DropdownPage.java
+D:\code\eclipse-workspace\parallel-case-step\src\test\java\pages\DynamicContentPage.java
 D:\code\eclipse-workspace\parallel-case-step\src\test\java\pages\DynamicControlsPage.java
 D:\code\eclipse-workspace\parallel-case-step\src\test\java\pages\HomePage.java
 D:\code\eclipse-workspace\parallel-case-step\src\test\java\pages\LoginPage.java
@@ -32,6 +35,7 @@ D:\code\eclipse-workspace\parallel-case-step\src\test\java\tests\checkbox\CheckB
 D:\code\eclipse-workspace\parallel-case-step\src\test\java\tests\contextmenu\ContextMenuTest.java
 D:\code\eclipse-workspace\parallel-case-step\src\test\java\tests\disappearing\DisappearingElementsTest.java
 D:\code\eclipse-workspace\parallel-case-step\src\test\java\tests\dragdrop\DragAndDropTest.java
+D:\code\eclipse-workspace\parallel-case-step\src\test\java\tests\dropdown\DropdownTest.java
 D:\code\eclipse-workspace\parallel-case-step\src\test\java\tests\dynamiccontrols\DynamicControlsTest.java
 D:\code\eclipse-workspace\parallel-case-step\src\test\java\tests\login\LoginTest.java
 D:\code\eclipse-workspace\parallel-case-step\src\test\java\tests\smoke\SmokeTest.java

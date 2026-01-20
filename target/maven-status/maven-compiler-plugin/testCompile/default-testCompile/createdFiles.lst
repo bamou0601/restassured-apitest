@@ -15,6 +15,7 @@ pages\ContextMenuPage.class
 base\DriverFactory.class
 base\FailureWatcher.class
 pages\DisappearingElementsPage.class
+tests\dropdown\DropdownTest.class
 base\TestContextHolder.class
 base\BrowserType.class
 tests\disappearing\DisappearingElementsTest.class
@@ -22,6 +23,9 @@ tests\smoke\SmokeTest.class
 utils\AllureUtils.class
 pages\ChallengingDomPage.class
 extensions\ScreenshotWatcher.class
+pages\dropdown\DropdownOption.class
+pages\dropdown\DropdownPage.class
+pages\DynamicContentPage.class
 base\ApiBaseTest.class
 pages\BrokenImagesPage.class
 pages\CheckboxesPage.class

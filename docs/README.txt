@@ -26,6 +26,9 @@ mvn clean test -Psmoke --% -Dbrowser=chrome -Dbase.url=https://the-internet.hero
 mvn clean test -Psmoke --% -Dbrowser=firefox -Dbase.url=https://the-internet.herokuapp.com
 mvn clean test -Psmoke --% -Dbrowser=edge -Dbase.url=https://the-internet.herokuapp.com
 
+1-8:
+
+
 
 
 	

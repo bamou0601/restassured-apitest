@@ -46,7 +46,7 @@ public class DriverFactory {
 			WebDriverManager.chromedriver().setup();
 			
 			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--start-maximized");
+			//options.addArguments("--start-maximized");
 			return new ChromeDriver(options);
 		}
 		
@@ -56,7 +56,7 @@ public class DriverFactory {
 	        WebDriverManager.firefoxdriver().setup();
 
 	        FirefoxOptions options = new FirefoxOptions();
-	        options.addArguments("--width=1920", "--height=1080");
+	        //options.addArguments("--width=1920", "--height=1080");
 
 	        return new FirefoxDriver(options);
 	    }
@@ -67,7 +67,7 @@ public class DriverFactory {
 	        //WebDriverManager.edgedriver().setup();
 
 	        EdgeOptions options = new EdgeOptions();
-	        options.addArguments("--start-maximized");
+	        //options.addArguments("--start-maximized");
 
 	        return new EdgeDriver(options);
 	    }
