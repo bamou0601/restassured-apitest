@@ -40,7 +40,7 @@
 * Java 17
 * Maven 3.9.11
 * JUnit 5.10.1
-* Selenium 4.18.1/ RestAssured
+* Selenium 4.18.1/ RestAssured 5.4.0
 * allure-junit5 2.27.0
 
 ---
