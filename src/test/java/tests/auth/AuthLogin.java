@@ -9,12 +9,15 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
 @Epic("API自動化")
-@Feature("ログインとtokkenの管理")
+@Feature("ログインとtokenの管理")
 @Story("ログイン機能のテスト")
 @Tag("API")
 @Tag("回帰テスト")
 public class AuthLogin {
-
+	
+	// テスト対象 API のベース URL
+    private static final String BASE_URL = "https://dummyjson.com";
+    
 	@Test
 	@Description("正常系ログイン")
 	void LoginSuccessfully() {
@@ -27,9 +30,9 @@ public class AuthLogin {
 		given()
 			.contentType("application/json")
 			.body(requestBody)
-		.when()
-			.post("https://dummyjons.com/auth/login")
-		.then()
+	   .when()
+			.post(BASE_URL + "/auth/login")
+	   .then()
 			.statusCode(200)
 			.body("username", equalTo("emilys"))
 			.body("token", notNullValue())
@@ -51,7 +54,7 @@ public class AuthLogin {
 		.contentType("application/json")
 		.body(requestBody)
 	.when()
-		.post("https://dummyjons.com/auth/login")
+		.post(BASE_URL + "/auth/login")
 	.then()
 		.statusCode(400);
 	}
