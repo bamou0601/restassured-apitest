@@ -23,13 +23,12 @@ public class ABTestPage extends BasePage {
     	return exists(title);
     }
     
-    /** get title's text */
+    /* タイトルのテキストを取得する */
     public String getTitleText() {
     	return text(title);
     }
 
-    /** 是否为合法的 A/B Test 标题 */
-    /** whether title for A/B Test legal*/
+    /* タイトルが有効なA/Bテストタイトルであるかを判定する */
     public boolean hasValidABTestTitle() {
         Set<String> expectedTitles = Set.of(
                 "A/B Test Control",

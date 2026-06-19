@@ -1,16 +1,16 @@
 <project
         xmlns="http://maven.apache.org/POM/4.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
         https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.study</groupId>
-    <artifactId>parallel-case-step</artifactId>
+    <artifactId>restassured-apitest</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <!-- ================== 全局属性 ================== -->
+    <!-- ================== global fields ================== -->
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -18,12 +18,12 @@
 
         <base.url>https://the-internet.herokuapp.com</base.url>
 
-        <!-- 默认不过滤 tag -->
+        <!--ディフォルト tagをフィルターしない -->
         <groups></groups>
         <skipTests>false</skipTests>
     </properties>
 
-    <!-- ================== 依赖 ================== -->
+    <!-- ================== dependencies ================== -->
     <dependencies>
 
         <!-- Selenium -->
@@ -48,7 +48,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- JUnit Platform Suite（可选） -->
+        <!-- JUnit Platform Suite（オプション） -->
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-suite</artifactId>
@@ -72,7 +72,7 @@
     		<scope>test</scope>
 		</dependency>
 
-        <!-- RestAssured（可与 Selenium 共存） -->
+        <!-- RestAssured（ Seleniumと共存できる） -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
@@ -80,7 +80,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- 日志 -->
+        <!-- ログ -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
@@ -89,11 +89,11 @@
 
     </dependencies>
 
-    <!-- ================== 构建配置 ================== -->
+    <!-- ================== ビルド　設定 ================== -->
     <build>
         <plugins>
 
-            <!-- ========== Surefire（核心）========== -->
+            <!-- ========== Surefire（コアー）========== -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -109,16 +109,17 @@
                     <!-- JUnit5 Tag -->
                     <groups>${groups}</groups>
 
-                    <!-- Allure 结果目录 -->
+                    <!-- Allure 結果ディレクトリ -->
                     <systemPropertyVariables>
                         <allure.results.directory>
                             ${project.build.directory}/allure-results
                         </allure.results.directory>
                         <browser>${browser}</browser>
+                        <headless>${headless}</headless>
                         <base.url>${base.url}</base.url>
                     </systemPropertyVariables>
 
-                    <!-- Allure JUnit5 Listener（关键） -->
+                    <!-- Allure JUnit5 Listener（key） -->
                     <properties>
                         <property>
                             <name>listener</name>
@@ -128,7 +129,7 @@
                 </configuration>
             </plugin>
 
-            <!-- ========== Allure Maven 插件 ========== -->
+            <!-- ========== Allure Maven プラグイン ========== -->
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
@@ -138,9 +139,16 @@
         </plugins>
     </build>
 
-    <!-- ================== Profile（只写差异） ================== -->
+    <!-- ================== Profile（差分だけ） ================== -->
     <profiles>
-
+		
+		<profile>
+    			<id>headless</id>
+    			<properties>
+        			<headless>true</headless>
+    			</properties>
+		</profile>
+		
         <profile>
             <id>smoke</id>
             <properties>

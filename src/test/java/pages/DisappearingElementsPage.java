@@ -35,16 +35,4 @@ public class DisappearingElementsPage extends BasePage {
 		return getMenuTexts().contains(menuName);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

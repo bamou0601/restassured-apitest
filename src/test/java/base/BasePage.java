@@ -5,13 +5,13 @@ import org.openqa.selenium.support.ui.*;
 import java.time.Duration;
 import java.util.List;
 /*
- * Page里不允许private WebDriver driver
- * 永远通过DriverManager取得
- * 职责：
+ * Pageにはprivate WebDriver driver存在しないよう
+ * いつもDriverManagerを通して取得
+ * 責務：
  * 管理 driver
  * 管理 wait
  * 提供 UI DSL（click / type / text / exists）
- * 提供 open() 的通用实现（但不知道具体 URL）
+ * open() の通用実現を提供（なお、具体的なURLを知らない）
  * 
  */
 public abstract class BasePage {
@@ -25,7 +25,7 @@ public abstract class BasePage {
 	protected abstract String path();
 	
 	public void open() {
-		//BasePage 不知道 baseUrl 从哪里来，只要求它存在
+		//BasePageはbaseUrlがどこか来るのが知らないが、存在だけを要求
 		String baseUrl = System.getProperty("base.url");
 		if(baseUrl == null) {
 			throw new IllegalStateException("base.url is not set");

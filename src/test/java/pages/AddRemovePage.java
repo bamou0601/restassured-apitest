@@ -18,12 +18,12 @@ public class AddRemovePage extends BasePage {
 		return PATH;
 	}
 	
-	@Step("打开add_remove_elements页面")
+	@Step("add_remove_elementsページをオープンする")
 	public void openPage() {
 		open();
 	}
 	//actions
-	@Step("点击add按钮添加元素")
+	@Step("addをクリック、要素を追加する")
 	public void addElement() {
 		click(addBtn);
 	}

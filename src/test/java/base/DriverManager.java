@@ -3,9 +3,9 @@ package base;
 import org.openqa.selenium.WebDriver;
 
 /*
- * ThreadLocal 
- * 线程隔离 
- * 并行必备
+ * ThreadLocal を利用してWebDriverをスレッド単位で管理する
+ * 各テストが独立したDriverを使用できるため、
+ * 並列実行時の競合を防止できる
  */
 public class DriverManager {
 	

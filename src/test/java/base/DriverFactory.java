@@ -13,9 +13,10 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 
 /*
- * 这里可以加 browser=chrome/firefox
- * 也可以支持 Selenium Grid
+ * 将来的に browser=chrome/firefox などの実行環境切り替えに対応可能
+ * Selenium Grid を利用した分散実行にも拡張可能
  */
+
 public class DriverFactory {
 	
 	public static WebDriver createDriver() {
@@ -41,12 +42,27 @@ public class DriverFactory {
 			}
 		}
 		
+		/* ============= headlessモードを実現する ============= */
+		private static boolean isHeadless() {
+			return Boolean.parseBoolean(
+				System.getProperty("headless", "false")
+			);
+		}
+		
+		
+		
 		/* ================= Chrome ================= */
 		private static WebDriver createChromeDriver() {
 			WebDriverManager.chromedriver().setup();
 			
 			ChromeOptions options = new ChromeOptions();
 			//options.addArguments("--start-maximized");
+			
+			if(isHeadless()) {
+			    options.addArguments("-headless=new");
+			    options.addArguments("--window-size=1920,1080");
+			}
+			
 			return new ChromeDriver(options);
 		}
 		
@@ -57,6 +73,11 @@ public class DriverFactory {
 
 	        FirefoxOptions options = new FirefoxOptions();
 	        //options.addArguments("--width=1920", "--height=1080");
+	        
+	        if(isHeadless()) {
+			    options.addArguments("-headless=new");
+			    options.addArguments("--window-size=1920,1080");
+			}
 
 	        return new FirefoxDriver(options);
 	    }
@@ -68,6 +89,11 @@ public class DriverFactory {
 
 	        EdgeOptions options = new EdgeOptions();
 	        //options.addArguments("--start-maximized");
+	        
+	        if(isHeadless()) {
+			    options.addArguments("-headless=new");
+			    options.addArguments("--window-size=1920,1080");
+			}
 
 	        return new EdgeDriver(options);
 	    }

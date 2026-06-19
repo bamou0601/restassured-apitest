@@ -10,11 +10,17 @@ import org.openqa.selenium.TakesScreenshot;
 
 import java.io.ByteArrayInputStream;
 /*
- * 每个test方法一个driver
- * 并行完全安全
- * 职责：WebDriver初始化/回收
- * 测试级别通用能力（截图、日志以后加）
- * 不允许出现页面细节
+ * 各テストメソッドで専用のWebDriverインスタンスを使用する。
+ * 並列実行時のスレッドセーフ性を保証する。
+ *
+ * 主な責務：
+ * - WebDriverの生成
+ * - WebDriverの終了処理
+ *
+ * テスト共通機能（スクリーンショット取得、ログ出力など）は
+ * 今後ここに追加する。
+ *
+ * ページ固有の操作や要素定義は含めない。
  */
 @ExtendWith(FailureWatcher.class)
 public abstract class BaseTest {
@@ -49,7 +55,7 @@ public abstract class BaseTest {
 					".png"
 			);		
 		} catch (Exception e) {
-			//防止截图失败影响测试结束
+			// スクリーンショット取得に失敗してもテスト終了処理は継続する
 			System.err.println("Screenshot capture failed: " + e.getMessage());
 		}
 	}

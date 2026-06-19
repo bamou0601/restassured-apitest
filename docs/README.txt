@@ -25,6 +25,10 @@ allure serve target/allure-results --port 5050
 mvn clean test -Psmoke --% -Dbrowser=chrome -Dbase.url=https://the-internet.herokuapp.com
 mvn clean test -Psmoke --% -Dbrowser=firefox -Dbase.url=https://the-internet.herokuapp.com
 mvn clean test -Psmoke --% -Dbrowser=edge -Dbase.url=https://the-internet.herokuapp.com
+headlessモードを実行するコマンド
+mvn clean test -Psmoke --% -Dbrowser=chrome,headless -Dbase.url=https://the-internet.herokuapp.com
+
+
 
 
 
