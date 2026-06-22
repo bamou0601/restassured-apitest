@@ -1,0 +1,13 @@
+[
+  {
+    "name": "正常ログイン",
+    "request": {
+      "username": "emilys",
+      "password": "emilyspass"
+    },
+    "expected": {
+      "statusCode": 200,
+      "username": "emilys"
+    }
+  }
+]

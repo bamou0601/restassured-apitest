@@ -1,0 +1,1 @@
+{"uuid":"58f5ffca-6a83-4166-91ab-7158f6e713bf","name":"LoginTestData(name=正常ログイン, request=LoginTestData.Request(username=emilys, password=emilyspass), expected=LoginTestData.Expected(statusCode=200, username=emilys, tokenExists=null))","children":["995b7183-ac71-423c-b106-d6ce046721c9"],"befores":[],"afters":[],"start":1782111709119,"stop":1782111711295}
