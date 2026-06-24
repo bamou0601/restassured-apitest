@@ -17,6 +17,11 @@ public class JsonUtil {
                 JsonUtil.class
                         .getClassLoader()
                         .getResourceAsStream(path);
+        
+        if(is == null) {
+			throw new RuntimeException(
+					"jsonファイルが見つかりません: " + path);
+		}
 
         return mapper.readValue(is, clazz);
     }

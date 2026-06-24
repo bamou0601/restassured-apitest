@@ -1,7 +1,8 @@
+C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\api\AuthApi.java
+C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\assertions\auth\LoginSuccessfullyAssertions.java
 C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\base\ApiBaseTest.java
 C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\base\ApiTestData.java
-C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\extensions\DriverExtension.java
-C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\extensions\ScreenshotWatcher.java
+C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\constants\Endpoints.java
 C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\model\LoginCsvData.java
 C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\model\LoginTestData.java
 C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\tests\auth\AuthMe.java
@@ -9,5 +10,4 @@ C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\tests\auth\Lo
 C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\utils\ConfigReader.java
 C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\utils\CsvUtil.java
 C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\utils\ExcelUtil.java
-C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\utils\JsonDataProvider.java
 C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\utils\JsonUtil.java
