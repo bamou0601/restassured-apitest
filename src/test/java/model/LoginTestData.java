@@ -16,6 +16,10 @@ public class LoginTestData {
     private String name;
     private Request request;
     private Expected expected;
+    
+    public String toString() {
+    		return name;
+    }
 
     @Data
     public static class Request {
@@ -27,7 +31,13 @@ public class LoginTestData {
     public static class Expected {
     		private int statusCode;
         private String username;
-        private Boolean tokenExists;
+        private String email;
+        private String firstName;
+        private String lastName;
+        private String gender;
+        private String image;
+        private Boolean accessToken;
+        private Boolean refreshToken;
     }
     
     // リクエスト取得

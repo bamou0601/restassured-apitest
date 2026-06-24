@@ -20,11 +20,15 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import api.AuthApi;
+import assertions.auth.LoginSuccessfullyAssertions;
+
 import java.util.Arrays;
 import java.util.stream.Stream;
 
 import static io.restassured.RestAssured.given;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 @Epic("API自動化")
 @Feature("ログインとTokenの管理")
@@ -46,29 +50,28 @@ public class LoginTest extends ApiBaseTest {
     @ParameterizedTest(name = "{0}")
     @MethodSource("loginData")
     void loginTest(LoginTestData data) {
-    	
-    		System.out.println("BASE_URL = " + BASE_URL);
-    		System.out.println(System.getProperty("base.url"));
+    		
+    		//debug code
+    		//System.out.println("BASE_URL = " + BASE_URL);
+   		//System.out.println(System.getProperty("base.url"));
 
+    		// Given
+        AuthApi authApi = new AuthApi();
+        
+        // When
         Response response =
-                given()
-                        .contentType("application/json")
-                        .body(data.getRequest())
-                .when()
-                        .post(BASE_URL + "/auth/login");
+                authApi.auth_login(
+                        data.getRequest());
         
-        response.then().log().all();
+       //debug code
+       // response.then().log().all();
         
-        response.then()
-                .statusCode(
-                        data.getExpected().getStatusCode());
-
-        if (data.getExpected().getUsername() != null) {
-
-            assertEquals(
-                    data.getExpected().getUsername(),
-                    response.jsonPath()
-                            .getString("username"));
-        }
-    }
+      //then
+        LoginSuccessfullyAssertions.verifyStatusCode(
+        		response, data.getExpected().getStatusCode());
+        
+        LoginSuccessfullyAssertions.verifyLoginResponse(
+        		response, data.getExpected());
+             
+    }   
 }

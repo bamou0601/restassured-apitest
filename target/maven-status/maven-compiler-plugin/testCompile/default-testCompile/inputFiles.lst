@@ -2,8 +2,8 @@ C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\base\ApiBaseT
 C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\base\ApiTestData.java
 C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\extensions\DriverExtension.java
 C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\extensions\ScreenshotWatcher.java
+C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\model\LoginCsvData.java
 C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\model\LoginTestData.java
-C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\tests\auth\AuthLogin.java
 C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\tests\auth\AuthMe.java
 C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\tests\auth\LoginTest.java
 C:\Users\mo_ba\eclipse-workspace\restassured-apitest\src\test\java\utils\ConfigReader.java

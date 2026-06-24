@@ -5,10 +5,11 @@ model\LoginTestData$Expected.class
 utils\ConfigReader.class
 utils\JsonUtil.class
 tests\auth\AuthMe.class
+model\LoginCsvData.class
 model\LoginTestData$Request.class
 extensions\DriverExtension.class
 extensions\ScreenshotWatcher.class
 utils\ExcelUtil.class
-tests\auth\AuthLogin.class
+tests\auth\LoginTest.class
 utils\CsvUtil.class
 base\ApiBaseTest.class

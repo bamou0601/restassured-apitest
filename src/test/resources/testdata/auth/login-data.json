@@ -7,7 +7,24 @@
     },
     "expected": {
       "statusCode": 200,
-      "username": "emilys"
+      "username": "emilys",
+	  "email": "emily.johnson@x.dummyjson.com",
+	  "firstName": "Emily",
+	  "lastName": "Johnson",
+	  "gender": "female",
+	  "image": "https://dummyjson.com/icon/emilys/128",
+	  "accessToken": true,
+	  "refreshToken": true
     }
-  }
+  },
+  	{
+      "name": "異常ログイン",
+      "request": {
+        "username": "emilys",
+        "password": "wrong"
+      },
+      "expected": {
+        "statusCode": 400
+      }
+    }
 ]
