@@ -1,7 +1,12 @@
 package base;
 
+import utils.AllureAttachments;
 import utils.ConfigReader;
+import utils.JsonUtil;
+
 import org.junit.jupiter.api.BeforeAll;
+
+import io.restassured.response.Response;
 
 /**
  * APIテスト共通基盤クラス
@@ -23,5 +28,16 @@ public class ApiBaseTest {
 //	}
 	
 	protected static final String BASE_URL = ConfigReader.getBaseUrl();
+	
+	protected void attachRequest(Object request) {
+
+        AllureAttachments.attachRequest(
+                JsonUtil.toJson(request));
+    }
+
+    protected void attachResponse(Response response) {
+
+        AllureAttachments.attachResponse(response);
+    }
 
 }

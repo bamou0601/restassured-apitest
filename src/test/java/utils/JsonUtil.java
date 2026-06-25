@@ -25,4 +25,18 @@ public class JsonUtil {
 
         return mapper.readValue(is, clazz);
     }
+    
+    public static String toJson(Object object) {
+    		
+    	try {
+    		return mapper
+    				.writerWithDefaultPrettyPrinter()
+    				.writeValueAsString(object);
+    	} catch (Exception e) {
+    		throw new RuntimeException(
+    				"JSON変換失敗", e);
+    	}
+    }
+    
+    
 }

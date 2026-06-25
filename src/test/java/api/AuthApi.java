@@ -5,8 +5,11 @@ import constants.Endpoints;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import utils.AllureAttachments;
+import utils.JsonUtil;
 
 import static io.restassured.RestAssured.given;
+
+import java.util.Map;
 
 
 public class AuthApi extends ApiBaseTest {
@@ -14,8 +17,7 @@ public class AuthApi extends ApiBaseTest {
 	@Step("ログインAPI実行")
 	public Response auth_login(Object request) {
 		
-//		AllureAttachments.attachRequest(
-//                JsonUtil.toJson(request));
+		attachRequest(request);
 		
 		Response response =
 				given()
@@ -24,7 +26,7 @@ public class AuthApi extends ApiBaseTest {
 				.when()
 					.post(BASE_URL + Endpoints.AUTH_LOGIN);
 		
-//		AllureAttachments.attachResponse(response);
+		attachResponse(response);
 		 
 		 return response;							
 	}
@@ -33,29 +35,45 @@ public class AuthApi extends ApiBaseTest {
 	public Response getCurrentUser(
 			String token) {
 		
-		return given()
+		 attachRequest(
+		            Map.of("token", token));
+
+		 Response response = given()
 				.header(
 						"Authorization",
 						"Bearer " + token)
 		.when()
 				.get(BASE_URL + Endpoints.AUTH_ME);
-							
+		 
+		 
+		 attachResponse(response);
+		 
+		 return response;
 	}
 	
 	@Step("トークン更新API実行")
 	public Response refreshToken(
 			String refreshToken) {
 		
-		return given()
-				.contentType("application/json")
-				.body("""
-					{
-						
-						"refreshToken": "%s"
-					}
-					""".formatted(refreshToken))
-		.when()
-				.post(BASE_URL + Endpoints.AUTH_REFRESH);
+		String requestBody =
+	            """
+	            {
+	                "refreshToken":"%s"
+	            }
+	            """.formatted(refreshToken);
+		
+		attachRequest(requestBody);
+		
+		Response response =
+	            given()
+	                    .contentType("application/json")
+	                    .body(requestBody)
+	            .when()
+	                    .post(BASE_URL + Endpoints.AUTH_REFRESH);
+		
+		attachResponse(response);
+		
+		return response;
 							
 	}
 
