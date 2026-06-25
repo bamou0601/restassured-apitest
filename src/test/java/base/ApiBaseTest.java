@@ -3,10 +3,13 @@ package base;
 import utils.AllureAttachments;
 import utils.ConfigReader;
 import utils.JsonUtil;
+import static io.restassured.RestAssured.given;
 
 import org.junit.jupiter.api.BeforeAll;
 
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 /**
  * APIテスト共通基盤クラス
@@ -38,6 +41,13 @@ public class ApiBaseTest {
     protected void attachResponse(Response response) {
 
         AllureAttachments.attachResponse(response);
+    }
+    
+    protected RequestSpecification requestSpec() {
+    		
+    		return given()
+    				.filter(new AllureRestAssured())
+    				.contentType("application/json");
     }
 
 }

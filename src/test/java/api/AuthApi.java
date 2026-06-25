@@ -6,6 +6,7 @@ import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import utils.AllureAttachments;
 import utils.JsonUtil;
+import io.qameta.allure.restassured.AllureRestAssured;
 
 import static io.restassured.RestAssured.given;
 
@@ -17,16 +18,17 @@ public class AuthApi extends ApiBaseTest {
 	@Step("ログインAPI実行")
 	public Response auth_login(Object request) {
 		
-		attachRequest(request);
+		//attachRequest(request);
 		
 		Response response =
 				given()
+					.filter(new AllureRestAssured())
 					.contentType("application/json")
 					.body(request)
 				.when()
 					.post(BASE_URL + Endpoints.AUTH_LOGIN);
 		
-		attachResponse(response);
+		//attachResponse(response);
 		 
 		 return response;							
 	}
@@ -35,10 +37,11 @@ public class AuthApi extends ApiBaseTest {
 	public Response getCurrentUser(
 			String token) {
 		
-		 attachRequest(
-		            Map.of("token", token));
+//		 attachRequest(
+//		            Map.of("token", token));
 
 		 Response response = given()
+				 .filter(new AllureRestAssured())
 				.header(
 						"Authorization",
 						"Bearer " + token)
@@ -46,7 +49,7 @@ public class AuthApi extends ApiBaseTest {
 				.get(BASE_URL + Endpoints.AUTH_ME);
 		 
 		 
-		 attachResponse(response);
+//		 attachResponse(response);
 		 
 		 return response;
 	}
@@ -62,16 +65,17 @@ public class AuthApi extends ApiBaseTest {
 	            }
 	            """.formatted(refreshToken);
 		
-		attachRequest(requestBody);
+//		attachRequest(requestBody);
 		
 		Response response =
 	            given()
+	            			.filter(new AllureRestAssured())
 	                    .contentType("application/json")
 	                    .body(requestBody)
 	            .when()
 	                    .post(BASE_URL + Endpoints.AUTH_REFRESH);
 		
-		attachResponse(response);
+//		attachResponse(response);
 		
 		return response;
 							

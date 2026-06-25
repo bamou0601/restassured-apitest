@@ -104,6 +104,13 @@
             <version>5.4.0</version>
             <scope>test</scope>
         </dependency>
+        
+        <dependency>
+    			<groupId>io.qameta.allure</groupId>
+    			<artifactId>allure-rest-assured</artifactId>
+    			<version>2.27.0</version>
+    			<scope>test</scope>
+		</dependency>
 
         <!-- ログ -->
         <dependency>
