@@ -1,3 +1,4 @@
 "BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
-"0","","0","","16","0","","0"
-"0","UI Quality","1","Static Resources","0","0","Broken Images Detection","0"
+"0","API自動化","0","ログインとTokenの管理","1","0","Token再利用のテスト","0"
+"0","API自動化","0","ログインとTokenの管理","2","0","ログイン機能のテスト","0"
+"0","","0","","1","0","","0"

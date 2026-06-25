@@ -1,1 +1,1 @@
-{"total":17,"items":[{"uid":"fad6889d48f63e6aa71528ab5b545cc1","name":"UI Quality","statistic":{"failed":1,"broken":0,"skipped":0,"passed":0,"unknown":0,"total":1}}]}
+{"total":2,"items":[{"uid":"d53ee51f7e61758e88beb29681bc7304","name":"API自動化","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}

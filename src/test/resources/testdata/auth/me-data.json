@@ -1,18 +1,21 @@
-{
-    "login": {
-        "request": {
-            "username": "emilys",
-            "password": "emilyspass"
-        },
-        "expected": {
-            "status": 200
-        }
-    },
-    "me": {
-        "expected": {
-            "status": 200,
-            "username": "emilys",
-            "gender": "female"
-        }
-    }
-}
+
+[
+	{
+    		"login": {
+        		"request": {
+            		"username": "emilys",
+            		"password": "emilyspass"
+        		},
+        		"expected": {
+            		"status": 200
+        		}
+    		},
+    		"me": {
+        		"expected": {
+            		"status": 200,
+            		"username": "emilys",
+            		"gender": "female"
+        		}
+    		}
+	}
+]

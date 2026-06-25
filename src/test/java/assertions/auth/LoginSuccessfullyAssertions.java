@@ -1,5 +1,6 @@
 package assertions.auth;
 
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import model.LoginTestData;
 
@@ -9,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class LoginSuccessfullyAssertions {
 	
+	@Step("ステータスコード検証")
 	public static void verifyStatusCode(
 			Response response,
 			int expectedStatusCode) {
@@ -19,6 +21,7 @@ public class LoginSuccessfullyAssertions {
 		
 	}
 	
+	@Step("レスポンス内容検証")
 	public static void verifyLoginResponse(
 			Response response,
 			LoginTestData.Expected expected) {

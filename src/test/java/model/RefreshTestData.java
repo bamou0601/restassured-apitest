@@ -3,10 +3,10 @@ package model;
 import lombok.Data;
 
 @Data
-public class MeTestData {
+public class RefreshTestData {
 	
 	private Login login;
-	private Me me;
+	private Refresh refresh;
 	
 	@Data
 	public static class Login {
@@ -26,14 +26,14 @@ public class MeTestData {
     }
 	
     @Data
-    public static class Me {
-        private MeExpected expected;
+    public static class Refresh {
+        private RefreshExpected expected;
     }
 
     @Data
-    public static class MeExpected {
+    public static class RefreshExpected {
         private int status;
-        private String username;
-        private String gender;
+        private Boolean accessToken;
+        private Boolean refreshToken;
     }
 }

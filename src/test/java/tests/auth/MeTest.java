@@ -1,6 +1,5 @@
 package tests.auth;
 
-
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -11,8 +10,12 @@ import utils.JsonUtil;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import api.AuthApi;
+import assertions.auth.MeAssertions;
+import base.ApiBaseTest;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
@@ -37,9 +40,9 @@ import java.util.stream.Stream;
 @Story("Token再利用のテスト")
 @Tag("API")
 @Tag("回帰テスト")
-public class MeTest {
+public class MeTest extends ApiBaseTest {
 
-    static Stream<MeTestData> loginData() throws Exception {
+    static Stream<MeTestData> meData() throws Exception {
 
     		MeTestData[] data =
                 JsonUtil.read(
@@ -49,7 +52,9 @@ public class MeTest {
         return Arrays.stream(data);
     }
 	
-    void loginTest(MeTestData data) {
+    @ParameterizedTest
+    @MethodSource("meData")
+    void meTest(MeTestData data) {
     		
     		// Given
     		AuthApi authApi = new AuthApi();
@@ -58,6 +63,12 @@ public class MeTest {
     		Response loginResponse =
     				authApi.auth_login(
     						data.getLogin().getRequest());
+    		
+    		assertEquals(
+    			    data.getLogin()
+    			        .getExpected()
+    			        .getStatus(),
+    			    loginResponse.getStatusCode());
 
     		// Token取得
     		String accessToken =
@@ -69,16 +80,26 @@ public class MeTest {
     				authApi.getCurrentUser(accessToken);
 
     		// Then
-    		assertEquals(
-    				data.getMe().getExpected().getStatus(),
-    				meResponse.getStatusCode());
-
-    		assertEquals(
-    				data.getMe().getExpected().getUsername(),
-    				meResponse.jsonPath().getString("username"));
-
-    		assertEquals(
-    				data.getMe().getExpected().getGender(),
-    				meResponse.jsonPath().getString("gender"));
+//    		assertEquals(
+//    				data.getMe().getExpected().getStatus(),
+//    				meResponse.getStatusCode());
+//
+//    		assertEquals(
+//    				data.getMe().getExpected().getUsername(),
+//    				meResponse.jsonPath().getString("username"));
+//
+//    		assertEquals(
+//    				data.getMe().getExpected().getGender(),
+//    				meResponse.jsonPath().getString("gender"));
+    		meResponse.then().log().all();
+    		
+    		MeAssertions.verifyStatusCode(
+    				meResponse, 
+    				data.getMe().getExpected().getStatus());
+    		
+    		MeAssertions.verifyMeResponse(
+    				meResponse, 
+    				data.getMe().getExpected());
+    		
     }
 }

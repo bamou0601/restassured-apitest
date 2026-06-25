@@ -14,7 +14,7 @@ import lombok.Data;
 public class LoginTestData {
 
     private String name;
-    private Request request;
+    private LoginRequest request;
     private Expected expected;
     
     public String toString() {
@@ -22,7 +22,7 @@ public class LoginTestData {
     }
 
     @Data
-    public static class Request {
+    public static class LoginRequest {
         private String username;
         private String password;
     }
@@ -41,7 +41,7 @@ public class LoginTestData {
     }
     
     // リクエスト取得
-    public Request getRequest() {
+    public LoginRequest getRequest() {
         return request;
     }
     

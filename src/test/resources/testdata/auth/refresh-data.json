@@ -1,4 +1,4 @@
-{
+[{
     "login": {
         "request": {
             "username": "emilys",
@@ -10,7 +10,9 @@
     },
     "refresh": {
         "expected": {
-            "status": 200
+            "status": 200,
+			"accessToken": true,
+			"refreshToken": true
         }
     }
-}
+}]
