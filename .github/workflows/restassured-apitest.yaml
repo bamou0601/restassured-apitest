@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   restassured-apitest:
-   timeout-minutes: 3
+    timeout-minutes: 3
     runs-on: ubuntu-latest
 
     steps:
