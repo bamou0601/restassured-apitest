@@ -42,10 +42,42 @@ jobs:
           name: allure-results
           path: target/allure-results
           
-          
+      # 前回のAllure履歴を取得
+      - name: Checkout gh-pages
+        if: always()
+        uses: actions/checkout@v4
+        with:
+           ref: gh-pages
+           path: gh-pages
+        continue-on-error: true
+
+    # Historyを復元
+      - name: Restore Allure History
+        if: always()
+        run: |
+           mkdir -p target/allure-results
+
+           if [ -d gh-pages/history ]; then
+             cp -r gh-pages/history target/allure-results/
+           fi
+
+    # Allure Report生成
+      - name: Generate Allure Report
+        if: always()
+        run: mvn allure:generate
+
+      - name: Save History
+        if: always()
+        run: |
+           mkdir -p gh-pages
+           cp -r target/site/allure-maven-plugin/history gh-pages/
+
+    # GitHub Pagesへ公開
       - name: Deploy Allure Report
+        if: always() && github.event_name == 'push'
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./allure-report
-          keep_files: true
+           github_token: ${{ secrets.GITHUB_TOKEN }}
+           publish_dir: target/site/allure-maven-plugin
+           keep_files: true
+          
