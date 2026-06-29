@@ -36,48 +36,30 @@ jobs:
       - name: Run API Tests
         run: mvn clean test -DbaseUrl=https://dummyjson.com
 
-      - name: Upload Allure Results
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results
-          path: target/allure-results
-          
-      # 前回のAllure履歴を取得
-      - name: Checkout gh-pages
-        if: always()
-        uses: actions/checkout@v4
-        with:
-           ref: gh-pages
-           path: gh-pages
-        continue-on-error: true
-
-    # Historyを復元
-      - name: Restore Allure History
-        if: always()
+      - name: Install Allure
         run: |
-           mkdir -p target/allure-results
+          npm install -g allure-commandline
 
-           if [ -d gh-pages/history ]; then
-             cp -r gh-pages/history target/allure-results/
-           fi
+      - name: Restore History
+        run: |
+          mkdir -p allure-results
+          if [ -d gh-pages/history ]; then
+            cp -r gh-pages/history target/allure-results/
+          fi
 
-    # Allure Report生成
-      - name: Generate Allure Report
-        if: always()
-        run: mvn allure:generate
+      - name: Generate Report
+        run: |
+          allure generate target/allure-results -o allure-report --clean
 
       - name: Save History
-        if: always()
         run: |
-           mkdir -p gh-pages
-           cp -r target/site/allure-maven-plugin/history gh-pages/
+          mkdir -p gh-pages
+          cp -r allure-report/history gh-pages/
 
-    # GitHub Pagesへ公開
-      - name: Deploy Allure Report
-        if: always() && github.event_name == 'push'
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
-           github_token: ${{ secrets.GITHUB_TOKEN }}
-           publish_dir: target/site/allure-maven-plugin
-           keep_files: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: allure-report
+          keep_files: true
           
