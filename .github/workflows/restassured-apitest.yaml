@@ -8,10 +8,12 @@ on:
   pull_request:
     branches:
       - main
+permissions:
+   contents: write
 
 jobs:
   restassured-apitest:
-
+   timeout-minutes: 3
     runs-on: ubuntu-latest
 
     steps:
@@ -39,3 +41,11 @@ jobs:
         with:
           name: allure-results
           path: target/allure-results
+          
+          
+      - name: Deploy Allure Report
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report
+          keep_files: true

@@ -52,7 +52,7 @@ public class MeTest extends ApiBaseTest {
         return Arrays.stream(data);
     }
 	
-    @ParameterizedTest
+    @ParameterizedTest(name = "{0}")
     @MethodSource("meData")
     void meTest(MeTestData data) {
     		
@@ -91,7 +91,7 @@ public class MeTest extends ApiBaseTest {
 //    		assertEquals(
 //    				data.getMe().getExpected().getGender(),
 //    				meResponse.jsonPath().getString("gender"));
-    		meResponse.then().log().all();
+//    		meResponse.then().log().all();
     		
     		MeAssertions.verifyStatusCode(
     				meResponse, 

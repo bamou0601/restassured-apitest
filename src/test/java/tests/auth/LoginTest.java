@@ -63,7 +63,7 @@ public class LoginTest extends ApiBaseTest {
                 authApi.auth_login(
                         data.getRequest());
         
-       //debug code
+       // debug code
        // response.then().log().all();
         
       //then
